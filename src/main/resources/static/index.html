@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>HTML5侧滑聊天面板DEMO演示</title>
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <!--<link rel='stylesheet prefetch' href='http://fonts.useso.com/css?family=Open+Sans'>-->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <!--[if IE]>
+    <!--<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>-->
+    <![endif]-->
+</head>
+<body>
+<div class="demo">
+    <!--start 欢迎界面-->
+    <svg class="sidebar" viewBox="0 0 300 500">
+        <path class="s-path" fill="#fff" d="M0,0 50,0 a0,250 0 1,1 0,500 L0,500"/>
+    </svg>
+    <div class="static">
+        <div class="static__text">Pull white sidebar to the right</div>
+    </div>
+    <!--欢迎界面 end-->
+
+    <!--start 好友列表-->
+    <div class="sidebar-content">
+
+    </div>
+    <!--好友列表 end-->
+
+    <!-- start 聊天窗体-->
+    <div class="chat">
+        <!--返回按钮-->
+        <span class="chat__back"></span>
+        <span class="chat__status">status</span>
+        <!--头像-->
+        <div class="chat__person">
+            <span class="chat__online active" id="to" data="9999"></span>
+            <span class="chat__name">Huehue Huehue</span>
+        </div>
+        <!--start 内容-->
+        <div class="chat__messages">
+
+        </div>
+        <!--内容 end-->
+        <input type="text" class="chat__input" placeholder="Your message"/>
+    </div>
+    <!--聊天窗体 end-->
+</div>
+
+<!--对方的消息模板-->
+<script id="chat_msgRow_notMine_tpl" type="text/html">
+    <div class="chat__msgRow">
+        <div class="chat__message notMine">{{d.message}}</div>
+    </div>
+</script>
+
+<!--自己的消息模板-->
+<script id="chat_msgRow_mine_tpl" type="text/html">
+    <div class="chat__msgRow">
+        <div class="chat__message mine">{{d.message}}</div>
+    </div>
+</script>
+<!--好友列表模板-->
+<script id="friend_list_tpl" type="text/html">
+    <div class="contact" id="{{d.uid}}">
+        <img src="img/1.png" alt="" class="contact__photo"/>
+        <span class="contact__name" data="{{d.uid}}">{{d.name}}</span>
+        <span class="contact__status online"></span>
+    </div>
+</script>
+
+<script type="text/javascript" src='js/stopExecutionOnTimeout.js?t=1'></script>
+<script type="text/javascript" src='js/jquery.min.js'></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+<script type="text/javascript" src="js/laytpl/laytpl.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/webSocket.js"></script>
+</body>
+</html>
